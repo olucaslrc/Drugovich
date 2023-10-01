@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Drugovich.Application.Commands.App.Handlers
 {
-    public class AddManagerCommandHandler : IRequestHandler<AddManagerCommand, ManagerDTO>
-    {
-        public async Task<ManagerDTO> Handle(AddManagerCommand request, CancellationToken cancellationToken)
-        {
+    //public class AddManagerCommandHandler : IRequestHandler<AddManagerCommand, ManagerDTO>
+    //{
+    //    public async Task<ManagerDTO> Handle(AddManagerCommand request, CancellationToken cancellationToken)
+    //    {
             
-        }
-    }
+    //    }
+    //}
 }

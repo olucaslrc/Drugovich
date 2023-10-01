@@ -1,16 +1,11 @@
-﻿using Drugovich.Application.DTOs;
+﻿using Drugovich.Application.DTOs.App;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Drugovich.Application.Commands
+namespace Drugovich.Application.Commands.App
 {
     public class AddManagerCommand : IRequest<ManagerDTO>
     {
-        public AddManagerCommand(ManagerDTO manager) 
+        public AddManagerCommand(ManagerDTO manager)
         {
             Manager = manager;
         }

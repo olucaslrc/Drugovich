@@ -24,35 +24,38 @@ using (var scope = app.Services.CreateScope())
         .GetRequiredService<DrugovichDbContext>();
     if (db.Database.CanConnect())
     {
-        if (!db.Database.EnsureCreated())
-        {
-            for (var i = 0; i < 10; i++)
-            {
-                db.CustomerGroups!.Add(new CustomerGroup
-                {
-                    Id = new Guid(),
-                    GroupName = $"Group{i}",
-                    Registered = DateTime.UtcNow,
-                    LastUpdate = DateTime.UtcNow
-                });
+        
+            //for (var i = 0; i < 10; i++)
+            //{
+            //    var group = new CustomerGroup
+            //    {
+            //        Id = new Guid(),
+            //        GroupName = $"Group{i}",
+            //        Registered = DateTime.UtcNow,
+            //        LastUpdate = DateTime.UtcNow
+            //    };
+            //    db.CustomerGroups!.Add(group);
+            //    await db.SaveChangesAsync();
 
-                db.Customers!.Add(new Customer
-                {
-                    Id = new Guid(),
-                    CNPJ = $"45.502.40{i}/0001-4{i}",
-                    Registered = DateTime.UtcNow,
-                    LastUpdate = DateTime.UtcNow
-                });
+            //    db.Customers!.Add(new Customer
+            //    {
+            //        Id = new Guid(),
+            //        CNPJ = $"45.502.40{i}/0001-4{i}",
+            //        FK_CustomerGroup = group.Id,
+            //        Registered = DateTime.UtcNow,
+            //        LastUpdate = DateTime.UtcNow
+            //    });
+            //    await db.SaveChangesAsync();
 
-                db.Managers!.Add(new Manager
-                {
-                    Id = new Guid(),
-                    Email = $"manager{i}@email.com",
-                    Level = LevelEnum.Level1
-                });
-            }
-        }
-        await db.Database.MigrateAsync();
+            //    db.Managers!.Add(new Manager
+            //    {
+            //        Id = new Guid(),
+            //        Email = $"manager{i}@email.com",
+            //        Level = LevelEnum.Level1
+            //    });
+            //    await db.SaveChangesAsync();
+            //}
+        //await db.Database.MigrateAsync();
     }
 }
 
@@ -65,6 +68,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

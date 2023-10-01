@@ -21,7 +21,7 @@ namespace Drugovich.Domain.Models.Mapping
                 .IsRequired();
 
             builder.Property(x => x.FK_CustomerGroup)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.Property(x => x.Registered)
                 .IsRequired();
@@ -39,7 +39,7 @@ namespace Drugovich.Domain.Models.Mapping
 
             // Relationships
             builder.HasOne(x => x.CustomerGroup)
-                .WithOne(x => x.Customer)
+                .WithOne()
                 .HasForeignKey<Customer>(x => x.FK_CustomerGroup);
         }
     }

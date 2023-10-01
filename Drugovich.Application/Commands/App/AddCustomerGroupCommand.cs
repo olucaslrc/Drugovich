@@ -1,20 +1,14 @@
-﻿using Drugovich.Application.DTOs;
-using Drugovich.Domain.Entities;
+﻿using Drugovich.Application.DTOs.App;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Drugovich.Application.Commands
+namespace Drugovich.Application.Commands.App
 {
     public class AddCustomerGroupCommand : IRequest<CustomerGroupDTO>
     {
-        public AddCustomerGroupCommand(CustomerGroupDTO customerGroup) 
+        public AddCustomerGroupCommand(AddCustomerGroupDTO customerGroup)
         {
             CustomerGroup = customerGroup;
         }
-        public CustomerGroupDTO CustomerGroup { get; set; }
+        public AddCustomerGroupDTO CustomerGroup { get; set; }
     }
 }

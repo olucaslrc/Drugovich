@@ -2158,6 +2158,7 @@
       "Drugovich.Domain >= 1.0.0",
       "Drugovich.Infrastructure >= 1.0.0",
       "Isopoh.Cryptography.Argon2 >= 2.0.0",
+      "MediatR >= 12.1.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.22",
       "Microsoft.EntityFrameworkCore >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.11",
@@ -2221,6 +2222,10 @@
           "Isopoh.Cryptography.Argon2": {
             "target": "Package",
             "version": "[2.0.0, )"
+          },
+          "MediatR": {
+            "target": "Package",
+            "version": "[12.1.1, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",

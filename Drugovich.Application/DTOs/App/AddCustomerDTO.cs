@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Drugovich.Application.DTOs
+namespace Drugovich.Application.DTOs.App
 {
-    public class ManagerDTO
+    public class AddCustomerDTO
     {
-        public Guid? Id { get; set; }
         public string? Name { get; set; }
-        public string? Token { get; set; }
+        public string? CNPJ { get; set; }
+        public Guid? FK_CustomerGroup { get; set; }
     }
 }

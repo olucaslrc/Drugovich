@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Drugovich.Application.DTOs
+namespace Drugovich.Application.DTOs.App
 {
     public class CustomerGroupDTO
     {

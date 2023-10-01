@@ -1,5 +1,6 @@
 ﻿using Drugovich.Application.Tools;
 using Drugovich.Domain.Entities;
+using Drugovich.Domain.Interfaces.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -7,9 +8,9 @@ using System.Text;
 
 namespace Drugovich.Application.Services.Security
 {
-    public class TokenService
+    public class TokenService : ITokenService
     {
-        public async static Task<string> CreateToken(Manager manager)
+        public async Task<string> CreateToken(Manager manager)
         {
             return await Task.Run(() =>
             {

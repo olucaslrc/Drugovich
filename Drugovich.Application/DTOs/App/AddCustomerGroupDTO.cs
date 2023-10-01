@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Drugovich.Domain.Interfaces.Services
+namespace Drugovich.Application.DTOs.App
 {
-    public interface ITokenService
+    public class AddCustomerGroupDTO
     {
+        public string? GroupName { get; set; }
     }
 }

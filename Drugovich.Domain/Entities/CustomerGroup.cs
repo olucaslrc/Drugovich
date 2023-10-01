@@ -9,6 +9,5 @@ namespace Drugovich.Domain.Entities
     public class CustomerGroup : EntityBase
     {
         public string? GroupName { get; set; }
-        public virtual Customer? Customer { get; set; }
     }
 }

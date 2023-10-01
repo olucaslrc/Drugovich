@@ -10,7 +10,7 @@ namespace Drugovich.Domain.Entities
     {
         public string? Name { get; set; }
         public string? CNPJ { get; set; }
-        public Guid FK_CustomerGroup { get; set; }
+        public Guid? FK_CustomerGroup { get; set; }
         public virtual CustomerGroup? CustomerGroup { get; set; }
     }
 }

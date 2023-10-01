@@ -62,3 +62,13 @@ C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\System.Code
 C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\System.Text.Json.dll
 C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\Isopoh.Cryptography.Argon2.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\Isopoh.Cryptography.Blake2b.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\Isopoh.Cryptography.SecureArray.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Developer\Study\Drugovich\Drugovich.Presentation\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

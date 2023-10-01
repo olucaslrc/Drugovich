@@ -1,4 +1,4 @@
-﻿using Drugovich.Application.DTOs;
+﻿using Drugovich.Application.DTOs.App;
 using Drugovich.Application.DTOs.Security;
 using MediatR;
 

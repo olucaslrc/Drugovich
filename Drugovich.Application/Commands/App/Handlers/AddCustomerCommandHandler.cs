@@ -1,18 +1,20 @@
 ﻿using AutoMapper;
-using Drugovich.Application.Commands.App;
-using Drugovich.Application.DTOs;
+using Drugovich.Application.DTOs.App;
 using Drugovich.Domain.Entities;
 using Drugovich.Domain.Interfaces;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace Drugovich.Application.Commands.App.Handlers
 {
     public class AddCustomerCommandHandler : IRequestHandler<AddCustomerCommand, CustomerDTO>
     {
+        private readonly ILogger<AddCustomerCommandHandler> _logger;
         private readonly IUnityOfWork _uow;
         private readonly IMapper _mapper;
-        public AddCustomerCommandHandler(IUnityOfWork uow, IMapper mapper)
+        public AddCustomerCommandHandler(ILogger<AddCustomerCommandHandler> logger, IUnityOfWork uow, IMapper mapper)
         {
+            _logger = logger;
             _uow = uow;
             _mapper = mapper;
         }
@@ -21,7 +23,7 @@ namespace Drugovich.Application.Commands.App.Handlers
         {
             try
             {
-                var obj = _mapper.Map<CustomerDTO, Customer>(request.Customer);
+                var obj = _mapper.Map<AddCustomerDTO, Customer>(request.Customer);
                 obj.Id = Guid.NewGuid();
                 obj.Registered = DateTime.UtcNow;
                 obj.LastUpdate = DateTime.UtcNow;
@@ -33,6 +35,7 @@ namespace Drugovich.Application.Commands.App.Handlers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message, DateTime.UtcNow);
                 throw new Exception(ex.Message);
             }
         }

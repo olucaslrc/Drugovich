@@ -1,113 +1,75 @@
 ﻿using Drugovich.Domain.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Data.Common;
+using System.Linq.Expressions;
 
 namespace Drugovich.Infrastructure.Data.Repositories
 {
     public abstract class Repository<T> : IRepositoryBase<T> where T : class
     {
+        private readonly DrugovichDbContext _context;
+        private readonly DbSet<T> _dbSet;
         private bool disposedValue;
-        protected DrugovichDbContext _context;
-        protected Repository(DrugovichDbContext context)
+
+        public Repository(DrugovichDbContext context)
         {
             _context = context;
+            _dbSet = context.Set<T>();
         }
 
-        public async Task<T> AddAsync(T entity)
+        public async Task<T> GetByIdAsync(int id)
         {
-            try
-            {
-                await _context.AddAsync(entity);
-                await SaveAsync();
-                return entity;
-            }
-            catch (DbException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        public async Task<bool> DeleteAsync(IEnumerable<T> entities)
-        {
-            try
-            {
-                foreach (var entity in entities)
-                {
-                    var obj = await _context.FindAsync<T>(entity);
-                    _context.Remove(obj!);
-                }
-                await SaveAsync();
-                return true;
-            }
-            catch (DbException ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            var result = await _dbSet.FindAsync(id);
+            return result!;
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            try
-            {
-                return await _context.Set<T>().ToListAsync();
-            }
-            catch (DbException ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return await _dbSet.ToListAsync();
         }
 
-        public async Task<T?> GetByIdAsync(Guid id)
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
         {
-            try
-            {
-                var result = await _context.Set<T>().FindAsync(id);
-
-                if (result != null)
-                {
-                    return result;
-                }
-                return null;
-
-            }
-            catch (DbException ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return await _dbSet.Where(predicate).ToListAsync();
         }
 
-        public async Task<bool> UpdateAsync(IEnumerable<T> entities)
+        public async Task<T> AddAsync(T entity)
         {
-            try
-            {
-                foreach (var entity in entities)
-                {
-                    var get = await _context.Set<T>().FindAsync(entity);
-                    _context.Update(get!);
-                }
-                await SaveAsync();
-                return true;
-            }
-            catch (DbException ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            await _dbSet.AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return entity;
         }
 
-        public async Task<bool> SaveAsync()
+        public async Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities)
         {
-            try
-            {
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (DbException ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            await _dbSet.AddRangeAsync(entities);
+            await _context.SaveChangesAsync();
+            return entities;
         }
 
-        //public async Task<Expression<T>>
+        public async Task<T> QueryAsync(Expression<Func<T, bool>> predicate)
+        {
+            var result = await _dbSet.FirstOrDefaultAsync(predicate);
+            return result!;
+        }
+
+        public void Update(T entity)
+        {
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+
+        public void Remove(T entity)
+        {
+            _dbSet.Remove(entity);
+            _context.SaveChanges();
+        }
+
+        public void RemoveRange(IEnumerable<T> entities)
+        {
+            _dbSet.RemoveRange(entities);
+            _context.SaveChanges();
+        }
 
         protected virtual void Dispose(bool disposing)
         {
@@ -115,13 +77,25 @@ namespace Drugovich.Infrastructure.Data.Repositories
             {
                 if (disposing)
                 {
+                    // TODO: dispose managed state (managed objects)
                 }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                // TODO: set large fields to null
                 disposedValue = true;
             }
         }
 
+        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+        // ~Repository()
+        // {
+        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        //     Dispose(disposing: false);
+        // }
+
         public void Dispose()
         {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }

@@ -1,22 +1,20 @@
 ﻿using AutoMapper;
-using Drugovich.Application.DTOs;
+using Drugovich.Application.DTOs.App;
 using Drugovich.Domain.Entities;
 using Drugovich.Domain.Interfaces;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-namespace Drugovich.Application.Commands.Handlers
+namespace Drugovich.Application.Commands.App.Handlers
 {
     public class AddCustomerGroupCommandHandler : IRequestHandler<AddCustomerGroupCommand, CustomerGroupDTO>
     {
+        private readonly ILogger<AddCustomerGroupCommandHandler> _logger;
         private readonly IUnityOfWork _uow;
         private readonly IMapper _mapper;
-        public AddCustomerGroupCommandHandler(IUnityOfWork uow, IMapper mapper)
+        public AddCustomerGroupCommandHandler(ILogger<AddCustomerGroupCommandHandler> logger, IUnityOfWork uow, IMapper mapper)
         {
+            _logger = logger;
             _uow = uow;
             _mapper = mapper;
         }
@@ -25,7 +23,7 @@ namespace Drugovich.Application.Commands.Handlers
         {
             try
             {
-                var obj = _mapper.Map<CustomerGroupDTO, CustomerGroup>(request.CustomerGroup);
+                var obj = _mapper.Map<AddCustomerGroupDTO, CustomerGroup>(request.CustomerGroup);
                 obj.Id = Guid.NewGuid();
                 obj.Registered = DateTime.UtcNow;
                 obj.LastUpdate = DateTime.UtcNow;
@@ -37,6 +35,7 @@ namespace Drugovich.Application.Commands.Handlers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message, DateTime.UtcNow);
                 throw new Exception(ex.Message);
             }
         }
