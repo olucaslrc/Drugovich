@@ -27,7 +27,7 @@ namespace Drugovich.Presentation.Controllers.App
         {
             try
             {
-                return new ObjectResult(await _mediator.Send(new GetCustomersQuery()));
+                return new OkObjectResult(await _mediator.Send(new GetCustomersQuery()));
             }
             catch (Exception ex)
             {
@@ -43,7 +43,7 @@ namespace Drugovich.Presentation.Controllers.App
         {
             try
             {
-                return new ObjectResult(await _mediator.Send(new AddCustomerCommand(model)));
+                return new OkObjectResult(await _mediator.Send(new AddCustomerCommand(model)));
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace Drugovich.Presentation.Controllers.App
         {
             try
             {
-                return new ObjectResult(await _mediator.Send(new UpdateCustomerCommand(model)));
+                return new OkObjectResult(await _mediator.Send(new UpdateCustomerCommand(model)));
             }
             catch (Exception ex)
             {

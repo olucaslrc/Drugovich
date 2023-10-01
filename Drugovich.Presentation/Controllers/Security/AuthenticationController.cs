@@ -29,7 +29,7 @@ namespace Drugovich.Presentation.Controllers.Security
         {
             try
             {
-                return new ObjectResult(
+                return new OkObjectResult(
                     await _mediator.Send(new RegisterManagerCommand(model))
                 );
             }
@@ -46,7 +46,7 @@ namespace Drugovich.Presentation.Controllers.Security
         {
             try
             {
-                return new ObjectResult(
+                return new OkObjectResult(
                     await _mediator.Send(new LoginManagerCommand(model))
                 );
             }
