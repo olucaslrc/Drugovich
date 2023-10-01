@@ -13,7 +13,7 @@ USER appuser
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG configuration=Release
 WORKDIR /src
-COPY ["Drugovich.Presentation.csproj", "./"]
+COPY ["*.csproj", "./"]
 RUN dotnet restore "Drugovich.Presentation.csproj"
 COPY . .
 WORKDIR "/src/."
