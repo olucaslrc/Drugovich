@@ -3,6 +3,7 @@
 ## Tutorial com o objetivo de rodar a aplicação
 - Requisitos:
   - É necessário ter a versão 6 do .NET Core SDK ou Runtime;
+  - É necessário ter o docker instalado na sua máquina;
   - É necessário ter o PostgreSQL em contêiner através do Docker (apenas para criar uma instância do servidor de banco de dados).
 
 ## PostgreSQL (Docker)
