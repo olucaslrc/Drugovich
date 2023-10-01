@@ -1,0 +1,14 @@
+C:\Developer\Study\Drugovich\Drugovich.Domain\bin\Debug\net6.0\Drugovich.Domain.deps.json
+C:\Developer\Study\Drugovich\Drugovich.Domain\bin\Debug\net6.0\Drugovich.Domain.runtimeconfig.json
+C:\Developer\Study\Drugovich\Drugovich.Domain\bin\Debug\net6.0\Drugovich.Domain.dll
+C:\Developer\Study\Drugovich\Drugovich.Domain\bin\Debug\net6.0\Drugovich.Domain.pdb
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\Drugovich.Domain.csproj.AssemblyReference.cache
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\Drugovich.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\Drugovich.Domain.AssemblyInfoInputs.cache
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\Drugovich.Domain.AssemblyInfo.cs
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\Drugovich.Domain.csproj.CoreCompileInputs.cache
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\Drugovich.Domain.dll
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\refint\Drugovich.Domain.dll
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\Drugovich.Domain.pdb
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\Drugovich.Domain.genruntimeconfig.cache
+C:\Developer\Study\Drugovich\Drugovich.Domain\obj\Debug\net6.0\ref\Drugovich.Domain.dll
