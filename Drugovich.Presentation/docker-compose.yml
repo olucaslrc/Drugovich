@@ -1,0 +1,37 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: '3.4'
+
+services:
+  drugovichpresentation:
+    image: drugovich
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - configuration=Debug
+    ports:
+      - 5064:5064
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=postgres
+    ports:
+      - 5432:5432
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

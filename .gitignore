@@ -480,3 +480,4 @@ $RECYCLE.BIN/
 *.obj
 *.bin
 *.vs
+*.vscode
