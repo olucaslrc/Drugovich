@@ -6,7 +6,7 @@
   - É necessário ter o docker instalado na sua máquina;
   - É necessário ter o PostgreSQL em contêiner através do Docker (apenas para criar uma instância do servidor de banco de dados).
 
-## PostgreSQL (Docker)
+## PostgreSQL (Docker WSL)
 Para rodar este projeto usando um banco de dados em contêiner, utilize o padrão do `docker run` através do comando:
 
 `docker run --name my-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres`
