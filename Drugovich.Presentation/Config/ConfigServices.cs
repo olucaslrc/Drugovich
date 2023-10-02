@@ -107,6 +107,18 @@ namespace Drugovich.Presentation.Config
                 };
             });
 
+            // Cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AnyOrigin", builder =>
+
+                    builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                );
+            });
+
             return services;
         }
     }

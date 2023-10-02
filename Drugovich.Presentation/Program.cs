@@ -91,10 +91,7 @@ namespace Drugovich.Presentation
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseCors(x => x.AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-            );
+            app.UseCors();
 
             app.MapControllers();
 
